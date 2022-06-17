@@ -1,11 +1,15 @@
-# discord-py-bot
-A Discord Bot using the discord py package
+# bot.py
+import os
 
-## Bot Specifications:
-- Confirm you are logged into the right server
-- Send a message when someone says **discord-bot-example**
+import discord
+from dotenv import load_dotenv
 
-```python
+import nest_asyncio
+nest_asyncio.apply()
+
+load_dotenv()
+TOKEN = os.getenv('DISCORD_TOKEN')
+
 client = discord.Client()
 
 @client.event
@@ -21,4 +25,3 @@ async def on_message(message):
         await message.channel.send(f'We coded this response in Python for you {message.author}')
 
 client.run(TOKEN)
-```
